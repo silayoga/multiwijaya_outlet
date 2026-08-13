@@ -1,0 +1,143 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'IBM Plex Sans', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+    --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+
+    --color-brand-blue: #1830c4;
+    --color-brand-cyan: #3dd6e8;
+    --color-brand-ink: #0b1220;
+
+    --color-surface: #f7f9fc;
+    --color-surface-border: #e4e9f5;
+}
+
+@layer base {
+    body {
+        @apply bg-surface text-brand-ink font-body;
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--color-brand-blue);
+        outline-offset: 2px;
+        border-radius: 2px;
+    }
+}
+
+/* ===== Hero signature: infinity-loop trace connecting router → camera → POS → dashboard ===== */
+.infinity-trace-path {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+    animation: infinity-trace 7s linear infinite;
+}
+
+@keyframes infinity-trace {
+    0% {
+        stroke-dashoffset: 1;
+    }
+    50% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: -1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .infinity-trace-path {
+        animation: none;
+        stroke-dashoffset: 0;
+    }
+}
+
+/* ===== Featured listings carousel ===== */
+.carousel-scroll {
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.carousel-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-scroll > * {
+    scroll-snap-align: start;
+}
+
+/*
+ * ===== Auth pages (login/register/forgot-password/reset-password/verify-email/set-password) =====
+ * These view files are out of scope for the redesign (kept as-is from the auth-work session),
+ * but they render through this same layout, so their class names live here — updated to pull
+ * from the new brand tokens so they don't look visually orphaned from the rest of the site.
+ */
+@layer components {
+    .auth-wrap {
+        @apply mx-auto max-w-md px-6 py-16 sm:py-24;
+    }
+    .auth-card {
+        @apply rounded-2xl border border-surface-border bg-white p-8 shadow-sm;
+    }
+    .auth-card h1 {
+        @apply font-display text-2xl font-bold text-brand-ink;
+    }
+    .auth-card .sub {
+        @apply mt-2 mb-6 text-sm text-slate-500;
+    }
+    .status-msg {
+        @apply mb-5 rounded-lg border border-brand-cyan/30 bg-brand-cyan/10 px-4 py-3 text-sm text-brand-blue;
+    }
+    .error-msg {
+        @apply mb-5 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600;
+    }
+    .field {
+        @apply mb-4;
+    }
+    .field label {
+        @apply mb-1.5 block text-sm font-medium text-brand-ink;
+    }
+    .field input {
+        @apply w-full rounded-lg border border-surface-border bg-surface px-3.5 py-2.5 font-body text-sm text-brand-ink outline-none transition-colors focus:border-brand-blue focus:bg-white;
+    }
+    .field-error {
+        @apply mt-1.5 text-xs text-red-600;
+    }
+    .field-check {
+        @apply flex items-center gap-2 text-sm text-slate-500;
+    }
+    .auth-links {
+        @apply mb-4 flex items-center justify-between text-xs;
+    }
+    .auth-links a,
+    .auth-foot a,
+    .btn-link {
+        @apply font-semibold text-brand-blue hover:underline;
+    }
+    .btn-link {
+        @apply cursor-pointer bg-transparent p-0 font-body text-sm;
+    }
+    .auth-foot {
+        @apply mt-6 text-center text-sm text-slate-500;
+    }
+    .divider {
+        @apply my-6 flex items-center gap-3 font-mono text-xs uppercase tracking-wide text-slate-400;
+    }
+    .divider::before,
+    .divider::after {
+        content: '';
+        @apply h-px flex-1 bg-surface-border;
+    }
+    .btn {
+        @apply inline-flex w-full items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-transform hover:-translate-y-0.5;
+    }
+    .btn-primary {
+        @apply bg-brand-blue text-white;
+    }
+    .btn-outline {
+        @apply border-2 border-surface-border bg-white text-brand-ink hover:border-brand-blue;
+    }
+}

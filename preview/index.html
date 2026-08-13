@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi Wijaya — Hardware & Software, One Ecosystem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: { blue: '#1830C4', cyan: '#3DD6E8', ink: '#0B1220' },
+          surface: { DEFAULT: '#F7F9FC', border: '#E4E9F5' },
+        },
+        fontFamily: {
+          display: ['Space Grotesk', 'sans-serif'],
+          body: ['IBM Plex Sans', 'sans-serif'],
+          mono: ['IBM Plex Mono', 'monospace'],
+        },
+      },
+    },
+  }
+</script>
+<style>
+  body { font-family: 'IBM Plex Sans', sans-serif; }
+  :focus-visible { outline: 2px solid #1830C4; outline-offset: 2px; border-radius: 2px; }
+
+  .infinity-trace-path {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+    animation: infinity-trace 7s linear infinite;
+  }
+  @keyframes infinity-trace {
+    0% { stroke-dashoffset: 1; }
+    50% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .infinity-trace-path { animation: none; stroke-dashoffset: 0; }
+  }
+
+  .carousel-scroll { scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .carousel-scroll::-webkit-scrollbar { display: none; }
+  .carousel-scroll > * { scroll-snap-align: start; }
+</style>
+</head>
+<body class="font-body text-brand-ink bg-surface antialiased">
+
+<header class="sticky top-0 z-50 bg-white border-b border-surface-border">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="flex items-center justify-between h-20">
+
+      <a href="#" class="flex items-center gap-2.5 py-4 -my-4 pr-4">
+        <img src="../public/images/logo-mark.png" alt="Multi Wijaya Technology" class="h-9 w-auto">
+        <span class="font-display font-bold text-lg uppercase tracking-wide text-brand-ink">Multi Wijaya<span class="text-brand-cyan">.</span></span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#hardware-categories" class="pb-1 text-sm font-medium border-b-2 border-transparent text-brand-ink/70 hover:border-brand-cyan hover:text-brand-ink transition-colors">Catalog</a>
+        <a href="#contact" class="pb-1 text-sm font-medium border-b-2 border-transparent text-brand-ink/70 hover:border-brand-cyan hover:text-brand-ink transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <div class="hidden sm:flex items-center gap-4 text-sm mr-1">
+          <a href="#" class="text-brand-ink/70 hover:text-brand-ink font-medium">Log in</a>
+          <a href="#" class="text-brand-ink/70 hover:text-brand-ink font-medium">Sign up</a>
+        </div>
+
+        <button type="button" aria-label="Search" class="w-10 h-10 rounded-lg border border-surface-border flex items-center justify-center hover:border-brand-blue transition-colors">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <button type="button" aria-label="Cart" class="relative w-10 h-10 rounded-lg border border-surface-border flex items-center justify-center hover:border-brand-blue transition-colors">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        </button>
+
+        <input type="checkbox" id="nav-toggle" class="peer hidden">
+        <label for="nav-toggle" class="md:hidden w-10 h-10 rounded-lg border border-surface-border flex items-center justify-center cursor-pointer" aria-label="Menu">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </label>
+
+        <div class="hidden peer-checked:block md:hidden absolute left-0 right-0 top-20 bg-white border-b border-surface-border px-6 py-4 shadow-lg">
+          <nav class="flex flex-col gap-3 mb-3">
+            <a href="#hardware-categories" class="text-sm font-medium py-1.5 text-brand-ink">Catalog</a>
+            <a href="#contact" class="text-sm font-medium py-1.5 text-brand-ink">Contact</a>
+          </nav>
+          <div class="flex flex-col gap-3 pt-3 border-t border-surface-border text-sm">
+            <a href="#" class="font-medium text-brand-ink">Log in</a>
+            <a href="#" class="font-medium text-brand-ink">Sign up</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<div class="bg-white border-b border-surface-border">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 py-4 flex flex-wrap justify-between gap-x-8 gap-y-2 text-xs sm:text-sm text-slate-500">
+    <div><span class="font-semibold text-brand-ink">100%</span> sourced &amp; configured in Bali</div>
+    <div><span class="font-semibold text-brand-ink">Hospitality · F&amp;B · NGO</span> sectors served</div>
+    <div><span class="font-semibold text-brand-ink">1</span> cart for hardware + subscriptions</div>
+    <div><span class="font-semibold text-brand-ink">On-site</span> install &amp; support</div>
+  </div>
+</div>
+
+<main>
+
+<section class="py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-12 md:gap-8 items-center">
+    <div>
+      <span class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wide text-brand-blue bg-brand-blue/10 px-3 py-1.5 rounded-full mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-cyan"></span>
+        CV. Multi Wijaya · Gianyar, Bali
+      </span>
+      <h1 class="font-display text-4xl md:text-5xl font-bold text-brand-ink leading-tight mb-5">
+        One connected system —<br class="hidden md:block"> from the network to the till.
+      </h1>
+      <p class="text-slate-500 text-base md:text-lg max-w-md mb-8">
+        Routers, CCTV, and POS hardware alongside Restoflow, DriverLoka, and E-HIOS software — priced,
+        carted, and checked out in one place instead of five different vendors.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="#hardware-categories" class="inline-flex items-center gap-2 rounded-lg bg-brand-blue text-white px-6 py-3 text-sm font-semibold hover:opacity-90 transition-opacity">
+          Browse Hardware →
+        </a>
+        <a href="#software-categories" class="inline-flex items-center gap-2 rounded-lg border-2 border-brand-cyan text-brand-ink px-6 py-3 text-sm font-semibold hover:bg-brand-cyan/10 transition-colors">
+          Browse Software
+        </a>
+      </div>
+    </div>
+
+    <div class="hidden md:block">
+      <svg viewBox="0 0 600 240" class="w-full h-auto" role="img" aria-label="Diagram: router, camera, POS terminal, and dashboard connected in one continuous loop">
+        <defs>
+          <linearGradient id="heroTraceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1830C4" />
+            <stop offset="100%" stop-color="#3DD6E8" />
+          </linearGradient>
+        </defs>
+
+        <path
+          d="M300,120 C300,60 220,40 150,60 C80,80 60,140 90,170 C120,200 200,190 240,150 C260,130 280,120 300,120 C320,120 340,130 360,150 C400,190 480,200 510,170 C540,140 520,80 450,60 C380,40 300,60 300,120 Z"
+          fill="none" stroke="#E4E9F5" stroke-width="2.5" stroke-linecap="round"
+        />
+        <path
+          class="infinity-trace-path"
+          pathLength="1"
+          d="M300,120 C300,60 220,40 150,60 C80,80 60,140 90,170 C120,200 200,190 240,150 C260,130 280,120 300,120 C320,120 340,130 360,150 C400,190 480,200 510,170 C540,140 520,80 450,60 C380,40 300,60 300,120 Z"
+          fill="none" stroke="url(#heroTraceGradient)" stroke-width="2.5" stroke-linecap="round"
+        />
+
+        <g transform="translate(90,170)">
+          <circle r="20" fill="white" stroke="#E4E9F5" stroke-width="1.5" />
+          <g transform="translate(-9,-9)" stroke="#1830C4" stroke-width="1.6" fill="none">
+            <rect x="3" y="8" width="18" height="6" rx="1.5"/><circle cx="8" cy="17" r="1.5"/><circle cx="16" cy="17" r="1.5"/>
+          </g>
+          <text x="0" y="38" text-anchor="middle" fill="#64748b" style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.04em;">ROUTER</text>
+        </g>
+
+        <g transform="translate(150,60)">
+          <circle r="20" fill="white" stroke="#E4E9F5" stroke-width="1.5" />
+          <g transform="translate(-9,-9)" stroke="#1830C4" stroke-width="1.6" fill="none">
+            <circle cx="12" cy="12" r="4"/><path d="M4 8V6a2 2 0 0 1 2-2h2M20 8V6a2 2 0 0 0-2-2h-2M4 16v2a2 2 0 0 0 2 2h2M20 16v2a2 2 0 0 1-2 2h-2"/>
+          </g>
+          <text x="0" y="-28" text-anchor="middle" fill="#64748b" style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.04em;">CCTV</text>
+        </g>
+
+        <g transform="translate(450,60)">
+          <circle r="20" fill="white" stroke="#E4E9F5" stroke-width="1.5" />
+          <g transform="translate(-9,-9)" stroke="#3DD6E8" stroke-width="1.6" fill="none">
+            <rect x="4" y="3" width="16" height="14" rx="1.5"/><path d="M8 21h8M12 17v4"/>
+          </g>
+          <text x="0" y="-28" text-anchor="middle" fill="#64748b" style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.04em;">POS</text>
+        </g>
+
+        <g transform="translate(510,170)">
+          <circle r="20" fill="white" stroke="#E4E9F5" stroke-width="1.5" />
+          <g transform="translate(-9,-9)" stroke="#3DD6E8" stroke-width="1.6" fill="none">
+            <path d="M3 17l4-8 4 4 4-10 6 14"/>
+          </g>
+          <text x="0" y="38" text-anchor="middle" fill="#64748b" style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.04em;">DASHBOARD</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 md:py-20">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="flex flex-wrap justify-between items-end gap-4 mb-10">
+      <div>
+        <span class="block font-mono text-xs uppercase tracking-wide text-brand-blue mb-2">Catalog</span>
+        <h2 class="font-display text-2xl md:text-3xl font-bold text-brand-ink">Two lines, one ecosystem</h2>
+      </div>
+      <p class="text-sm text-slate-500 max-w-sm">
+        Every listing — physical or software — shares the same pricing engine, so a router and a subscription sit in the same cart.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div id="hardware-categories" class="scroll-mt-24">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-display font-semibold text-lg text-brand-ink">Hardware</h3>
+          <span class="font-mono text-[10px] uppercase tracking-wide text-brand-blue bg-brand-blue/10 px-2.5 py-1 rounded-full">Physical · one-time</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <a href="#" class="rounded-xl border border-surface-border bg-white p-4 hover:border-brand-blue transition-colors">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1830C4" stroke-width="1.6" class="mb-3"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M2 20h20"/></svg>
+            <h4 class="font-display font-semibold text-sm text-brand-ink mb-1">Networking Device</h4>
+            <p class="text-xs text-slate-500">4 listings</p>
+          </a>
+          <a href="#" class="rounded-xl border border-surface-border bg-white p-4 hover:border-brand-blue transition-colors">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1830C4" stroke-width="1.6" class="mb-3"><circle cx="12" cy="12" r="4"/><path d="M4 8V6a2 2 0 0 1 2-2h2M20 8V6a2 2 0 0 0-2-2h-2M4 16v2a2 2 0 0 0 2 2h2M20 16v2a2 2 0 0 1-2 2h-2"/></svg>
+            <h4 class="font-display font-semibold text-sm text-brand-ink mb-1">CCTV Camera</h4>
+            <p class="text-xs text-slate-500">4 listings</p>
+          </a>
+        </div>
+      </div>
+
+      <div id="software-categories" class="scroll-mt-24">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-display font-semibold text-lg text-brand-ink">Software &amp; Services</h3>
+          <span class="font-mono text-[10px] uppercase tracking-wide text-brand-blue bg-brand-cyan/20 px-2.5 py-1 rounded-full">Subscription · tiered</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <a href="#" class="rounded-xl border border-surface-border bg-white p-4 hover:border-brand-blue transition-colors">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1830C4" stroke-width="1.6" class="mb-3"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
+            <h4 class="font-display font-semibold text-sm text-brand-ink mb-1">Software &amp; Services</h4>
+            <p class="text-xs text-slate-500">4 listings</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="featured" class="py-16 md:py-20">
+  <div class="max-w-7xl mx-auto">
+    <div class="px-6 md:px-10 flex flex-wrap justify-between items-end gap-4 mb-8">
+      <div>
+        <span class="block font-mono text-xs uppercase tracking-wide text-brand-blue mb-2">One cart, mixed order</span>
+        <h2 class="font-display text-2xl md:text-3xl font-bold text-brand-ink">Featured this month</h2>
+      </div>
+      <p class="text-sm text-slate-500 max-w-sm">
+        An example of how hardware and subscriptions appear side by side in the same catalog view.
+      </p>
+    </div>
+
+    <div class="carousel-scroll flex gap-5 overflow-x-auto px-6 md:px-10 pb-4 scroll-px-6 md:scroll-px-10">
+
+      <div class="flex-shrink-0 w-64">
+        <a href="#" class="w-full rounded-2xl border border-surface-border bg-white overflow-hidden block">
+          <div class="h-36 flex items-center justify-center text-center px-4 font-display font-semibold text-sm text-white bg-gradient-to-br from-brand-blue to-brand-ink">Networking Device</div>
+          <div class="p-4">
+            <span class="block mb-1.5 font-mono text-[10px] uppercase tracking-wide text-slate-500">Physical · One-time</span>
+            <h4 class="font-display font-semibold text-sm text-brand-ink mb-3 min-h-[2.25rem]">Mikrotik hAP ax³ Gigabit</h4>
+            <span class="font-mono text-sm font-medium text-brand-ink">Rp 2.150.000</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="flex-shrink-0 w-64">
+        <a href="#" class="w-full rounded-2xl border border-surface-border bg-white overflow-hidden block">
+          <div class="h-36 flex items-center justify-center text-center px-4 font-display font-semibold text-sm text-white bg-gradient-to-br from-brand-cyan to-brand-blue">Software &amp; Services</div>
+          <div class="p-4">
+            <span class="block mb-1.5 font-mono text-[10px] uppercase tracking-wide text-slate-500">Subscription · Monthly</span>
+            <h4 class="font-display font-semibold text-sm text-brand-ink mb-3 min-h-[2.25rem]">Restoflow — Pro Plan</h4>
+            <span class="font-mono text-sm font-medium text-brand-ink">Rp 750.000/mo</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="flex-shrink-0 w-64">
+        <a href="#" class="w-full rounded-2xl border border-surface-border bg-white overflow-hidden block">
+          <div class="h-36 flex items-center justify-center text-center px-4 font-display font-semibold text-sm text-white bg-gradient-to-br from-brand-blue to-brand-ink">CCTV Camera</div>
+          <div class="p-4">
+            <span class="block mb-1.5 font-mono text-[10px] uppercase tracking-wide text-slate-500">Physical · One-time</span>
+            <h4 class="font-display font-semibold text-sm text-brand-ink mb-3 min-h-[2.25rem]">4-Channel NVR + Camera Set</h4>
+            <span class="font-mono text-sm font-medium text-brand-ink">Rp 4.850.000</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="flex-shrink-0 w-64">
+        <a href="#" class="w-full rounded-2xl border border-surface-border bg-white overflow-hidden block">
+          <div class="h-36 flex items-center justify-center text-center px-4 font-display font-semibold text-sm text-white bg-gradient-to-br from-brand-cyan to-brand-blue">Software &amp; Services</div>
+          <div class="p-4">
+            <span class="block mb-1.5 font-mono text-[10px] uppercase tracking-wide text-slate-500">Subscription · Custom quote</span>
+            <h4 class="font-display font-semibold text-sm text-brand-ink mb-3 min-h-[2.25rem]">E-HIOS — Starter</h4>
+            <span class="font-mono text-sm font-medium text-brand-ink">Custom quote</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="flex-shrink-0 w-64">
+        <a href="#" class="w-full rounded-2xl border border-surface-border bg-white overflow-hidden block">
+          <div class="h-36 flex items-center justify-center text-center px-4 font-display font-semibold text-sm text-white bg-gradient-to-br from-brand-blue to-brand-ink">Networking Device</div>
+          <div class="p-4">
+            <span class="block mb-1.5 font-mono text-[10px] uppercase tracking-wide text-slate-500">Physical · One-time</span>
+            <h4 class="font-display font-semibold text-sm text-brand-ink mb-3 min-h-[2.25rem]">Ubiquiti UniFi AP AC Lite</h4>
+            <span class="font-mono text-sm font-medium text-brand-ink">Rp 1.580.000</span>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="contact" class="bg-brand-ink text-white/70">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 py-16">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-14">
+      <div class="col-span-2 md:col-span-1">
+        <div class="py-2 -my-2 mb-4 inline-block">
+          <img src="../public/images/logo-mark.png" alt="Multi Wijaya Technology" class="h-9 w-auto">
+        </div>
+        <p class="text-sm leading-relaxed text-white/50 max-w-xs">
+          CV. Multi Wijaya — IT systems, hardware procurement, and software products for hospitality, F&amp;B, and NGO sectors across Bali.
+        </p>
+      </div>
+      <div>
+        <h5 class="text-white text-xs font-semibold uppercase tracking-wide mb-4">Hardware</h5>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="#" class="hover:text-brand-cyan transition-colors">Browse all hardware</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="text-white text-xs font-semibold uppercase tracking-wide mb-4">Software &amp; Services</h5>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="#" class="hover:text-brand-cyan transition-colors">Browse all software</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="text-white text-xs font-semibold uppercase tracking-wide mb-4">Company</h5>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="#" class="hover:text-brand-cyan transition-colors">About CV. Multi Wijaya</a></li>
+          <li><a href="#" class="hover:text-brand-cyan transition-colors">Request a Quote</a></li>
+          <li><a href="#" class="hover:text-brand-cyan transition-colors">Support</a></li>
+          <li><a href="#" class="hover:text-brand-cyan transition-colors">Gianyar, Bali</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-6 border-t border-white/10 flex flex-wrap justify-between gap-2 text-xs text-white/40">
+      <span>&copy; 2026 CV. Multi Wijaya. All rights reserved.</span>
+      <span>store.multiwijaya.com</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
