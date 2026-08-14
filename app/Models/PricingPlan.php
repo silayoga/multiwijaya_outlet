@@ -11,7 +11,7 @@ class PricingPlan extends Model
     use HasFactory;
 
     protected $fillable = [
-        'listing_id', 'plan_name', 'billing_cycle', 'price', 'currency',
+        'listing_id', 'plan_name', 'slug', 'billing_cycle', 'price', 'currency',
         'features', 'is_default', 'sort_order',
     ];
 

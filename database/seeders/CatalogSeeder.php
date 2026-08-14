@@ -119,28 +119,50 @@ class CatalogSeeder extends Seeder
         ]);
 
         $restoflow = $this->softwareListing($software, [
-            'name' => 'Restoflow — Pro Plan',
-            'slug' => 'restoflow-pro-plan',
+            'name' => 'Restoflow',
+            'slug' => 'restoflow',
             'short_description' => 'Multi-tenant restaurant POS with kitchen display and reporting.',
             'is_featured' => true,
         ]);
         PricingPlan::create([
             'listing_id' => $restoflow->id,
-            'plan_name' => 'Pro — Monthly',
+            'plan_name' => 'Basic',
+            'slug' => 'restoflow-basic',
             'billing_cycle' => 'monthly',
-            'price' => 750000,
+            'price' => 250000,
             'currency' => 'IDR',
-            'is_default' => true,
+            'is_default' => false,
             'sort_order' => 1,
         ]);
         PricingPlan::create([
             'listing_id' => $restoflow->id,
-            'plan_name' => 'Pro — Yearly',
-            'billing_cycle' => 'yearly',
-            'price' => 7500000,
+            'plan_name' => 'Pro',
+            'slug' => 'restoflow-pro',
+            'billing_cycle' => 'monthly',
+            'price' => 300000,
+            'currency' => 'IDR',
+            'is_default' => true,
+            'sort_order' => 2,
+        ]);
+        PricingPlan::create([
+            'listing_id' => $restoflow->id,
+            'plan_name' => 'Enterprise',
+            'slug' => 'restoflow-enterprise',
+            'billing_cycle' => 'monthly',
+            'price' => 500000,
             'currency' => 'IDR',
             'is_default' => false,
-            'sort_order' => 2,
+            'sort_order' => 3,
+        ]);
+        PricingPlan::create([
+            'listing_id' => $restoflow->id,
+            'plan_name' => 'Enterprise+',
+            'slug' => 'restoflow-enterprise-plus',
+            'billing_cycle' => 'monthly',
+            'price' => 850000,
+            'currency' => 'IDR',
+            'is_default' => false,
+            'sort_order' => 4,
         ]);
 
         $driverloka = $this->softwareListing($software, [
